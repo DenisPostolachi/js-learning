@@ -1,0 +1,20 @@
+.red-bg {
+    background-color: red;
+}
+
+.green-bg {
+    background-color: green;
+}
+
+.orange-bg {
+    background-color: orange;
+}
+
+.even {
+    background: green;
+}
+
+.odd {
+    background: violet;
+}
+
