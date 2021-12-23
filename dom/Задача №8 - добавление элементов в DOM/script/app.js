@@ -1,34 +1,27 @@
-let button = document.querySelector(".btn");
-let input = document.querySelector(".input");
-let form = document.querySelector(".form");
-let list = document.querySelector(".list li");
+document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('input');
+    const addButton = document.getElementById('addToList');
+    const ol = document.getElementById('orderedList');
+    input.focus()
+    addButton.setAttribute('disabled', 'true');
+    input.onkeyup = () => {
+        if (input.value.length > 0) {
+            addButton.removeAttribute('disabled');
+        }
+    }
 
+    addButton.onclick = () => {
+        const li = document.createElement("li");
+        li.classList.add('li');
+        li.appendChild(document.createTextNode(`${input.value}`));
+        ol.appendChild(li);
+        input.value = null;
+        addButton.setAttribute('disabled', 'true');
+    }
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const value = form.querySelector('input[type="text"]').value;
-
-    const li = document.createElement('li');
-    const input = document.createElement('span');
-    input.textContent = value;
-
-    li.appendChild(input);
-    list.appendChild(li);
-
-
-    console.log(value);
-    form.reset();
-
-});
-
-input.addEventListener("focus", (e) => {
-    button.disabled = input.value.length === 0;
-});
-
-input.addEventListener("input", (e) => {
-    button.disabled = input.value.length === 0;
-});
-
-list.addEventListener('click', (e)  => {
-    alert(e.target.innerText);
-});
+    window.onclick = e => {
+        if (e.target.tagName === 'LI') {
+            alert(e.target.innerText);
+        }
+    }
+})

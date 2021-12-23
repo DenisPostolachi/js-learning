@@ -1,5 +1,5 @@
-const reduce = document.querySelector('.reduce');
-const increase = document.querySelector('.increase');
+const reduce = document.getElementById('reduce');
+const increase = document.getElementById('increase');
 const input = document.getElementById('input');
 
 
