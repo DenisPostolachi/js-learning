@@ -1,6 +1,10 @@
+
+//todo document.body
 const body = document.querySelector('body');
 
+// todo = (message, options: {top: true, left: true})
 const showNotification = (top, right, message) => {
+  //todo сделать через position: fixed
   setTimeout(() => {
     const element = document.createElement('div');
     element.textContent = message;

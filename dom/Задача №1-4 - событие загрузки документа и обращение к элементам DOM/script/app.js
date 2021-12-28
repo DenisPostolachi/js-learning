@@ -7,20 +7,25 @@ setTimeout(() => {
 }, 3000);
 
 const btn = document.querySelector('.btn');
+
+//todo use addEventListener
 btn.onclick = () => {
     body.classList.toggle('orange-bg');
 }
 
 const list = document.getElementById("list");
+
 for (let i = 0; i <= 20; i++) {
     setTimeout(() => {
         const li = document.createElement("li");
+
         list.appendChild(li);
         li.innerHTML = `${i} Element`;
-        if (i % 2 === 0) {
-            li.classList.add('even');
-        } else {
+
+        if (i % 2) {
             li.classList.add('odd');
+        } else {
+            li.classList.add('even');
         }
     }, i * 2000);
 }

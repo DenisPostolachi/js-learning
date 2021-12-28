@@ -5,8 +5,12 @@ let container = document.querySelector('#container');
 let playerLeft = 0;
 let playerTop = 0;
 
+// todo переписать через объект, создать объект с функциями с
+// todo ключами соответствующими названию клавиш и вызывать при нажатии, пример methods[e.key]()
 
+// todo переписать через свич кейс и рассказать почему это оптимальней чем if/ if с return
 const playerMoving = (e) => {
+    //todo всегда использовать ===
     if (e.keyCode == 39) {
         playerLeft += 8;
         player.style.left = playerLeft + 'px';
@@ -37,4 +41,5 @@ const playerMoving = (e) => {
     }
 }
 
+//todo
 document.onkeydown = playerMoving;

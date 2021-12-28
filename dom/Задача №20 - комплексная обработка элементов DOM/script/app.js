@@ -3,6 +3,7 @@ const forms = document.forms;
 
 // удаляет
 list.addEventListener('click', (e) => {
+    // todo добавить обработчик на кнопку и удалить парент
     if(e.target.className == 'delete'){
         const li = e.target.parentElement;
         li.parentNode.removeChild(li);
@@ -11,6 +12,8 @@ list.addEventListener('click', (e) => {
 
 // добавляет
 const addForm = forms['add-user'];
+
+//todo ()=> ??
 addForm.addEventListener('submit', function(e){
     e.preventDefault();
 
@@ -29,6 +32,7 @@ addForm.addEventListener('submit', function(e){
     deleteBtn.classList.add('delete');
 
     // вставляет в дом
+    //todo .append
     li.appendChild(userName);
     li.appendChild(deleteBtn);
     list.appendChild(li);

@@ -1,10 +1,8 @@
 const input = document.querySelector('#input');
 
-
-input.addEventListener('input', () => {
-    const value = input.value;
-    if (typeof(value) != 'number') {
-        input.setAttribute('type', 'number');
+//todo
+input.addEventListener('keydown', (e) => {
+    if (!Number(e.key)) {
+        e.preventDefault();
     }
-    console.log(typeof(value));
 });
