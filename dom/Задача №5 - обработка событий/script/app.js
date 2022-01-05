@@ -4,13 +4,16 @@ const input = document.getElementById('input');
 
 //todo use const
 //todo use .value
-let inputValue = input.getAttribute('value');
-let inputValueInt = parseInt(inputValue);
+const inputValue = input.value;
+let inputValueInt = Number(inputValue);
+
+
 
 
 reduce.addEventListener('click', (e) => {
     //todo сначало инктремент потом присваниние (inputValueInt)
-    input.setAttribute('value', `${inputValueInt -= 1}`);
+    inputValueInt -= 1
+    input.setAttribute('value', inputValueInt);
 
     if (inputValueInt <= 0) {
         reduce.setAttribute('disabled', '');
@@ -23,7 +26,8 @@ reduce.addEventListener('click', (e) => {
 
 increase.addEventListener('click', (e) => {
     //todo сначало инктремент потом присваниние (inputValueInt)
-    input.setAttribute('value', `${inputValueInt += 1}`);
+    inputValueInt += 1
+    input.setAttribute('value', inputValueInt);
     if (inputValueInt > 0) {
         reduce.removeAttribute('disabled');
     }

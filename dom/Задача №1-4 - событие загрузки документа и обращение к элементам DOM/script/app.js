@@ -8,10 +8,10 @@ setTimeout(() => {
 
 const btn = document.querySelector('.btn');
 
-//todo use addEventListener
-btn.onclick = () => {
-    body.classList.toggle('orange-bg');
-}
+
+btn.addEventListener('click' ,() => {
+    body.classList.toggle('orange-bg')
+})
 
 const list = document.getElementById("list");
 
