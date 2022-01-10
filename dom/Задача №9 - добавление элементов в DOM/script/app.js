@@ -1,20 +1,26 @@
-
 //todo document.body
-const body = document.querySelector('body');
-
 // todo = (message, options: {top: true, left: true})
-const showNotification = (top, right, message) => {
-  //todo сделать через position: fixed
+//todo сделать через position: fixed
+console.log(11111);
+const box = document.querySelector('.box');
+
+const showNotifications = (message, options = {top: true, right: true}) => {
+  const notification = document.createElement('div');
+  const notificationText = document.createElement('p');
+  notificationText.innerText = message;
+  notification.style.position = "fixed";
+  notification.style.top = options.top + "px";
+  notification.style.right = options.right + "px";
+  notification.classList.add('notification-content');
+
+  notification.append(notificationText);
+  box.append(notification);
+
   setTimeout(() => {
-    const element = document.createElement('div');
-    element.textContent = message;
-    element.classList.add('notification');
-    element.style.paddingTop = top;
-    element.style.paddingRight = right;
-
-    body.appendChild(element);
-
+      box.remove(notification);
   }, 1500);
-};
 
-showNotification('100px', '100px', 'test');
+}
+
+
+showNotifications('hello', {top: 100, right: 100});

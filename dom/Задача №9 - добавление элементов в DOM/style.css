@@ -1,4 +1,12 @@
-.notification {
+.notification-content {
+    width: 150px;
+    height: 75px;
+    background-color: #444444;
+    border-radius: 5px;
+    color: #cccccc;
+    font-size: 18px;
+
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
 }

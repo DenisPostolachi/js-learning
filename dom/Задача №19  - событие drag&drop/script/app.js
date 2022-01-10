@@ -1,30 +1,17 @@
-const zoneOne = document.querySelector('#parent-left');
-const zoneTwo = document.querySelector('#parent-right');
-const square = document.querySelector('#child');
+const draggableElement = document.querySelector('#draggableElement');
+draggableElement.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData("text/plain", draggableElement.id);
+})
 
-//todo addEventListener
-zoneOne.ondragover = allowDrop;
-zoneTwo.ondragover = allowDrop;
+for (const dropZone of document.querySelectorAll(".drop-zone")) {
+    dropZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+    })
 
-//todo ()=>  ???
-function allowDrop(event) {
-    event.preventDefault();
-}
-
-//todo addEventListener
-square.ondragstart = drag;
-
-//todo ()=>  ???
-function drag(event) {
-    event.dataTransfer.setData('id', event.target.id);
-}
-
-//todo addEventListener
-zoneOne.ondrop = drop;
-zoneTwo.ondrop = drop;
-
-//todo ()=>  ???
-function drop(event) {
-    let itemId = event.dataTransfer.getData('id');
-    event.target.append(document.getElementById(itemId));
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const droppedElementId = e.dataTransfer.getData("text/plain");
+        const droppedElement = document.getElementById(droppedElementId);
+        dropZone.appendChild(droppedElement);
+    })
 }
