@@ -12,7 +12,7 @@ class Form {
         this.id = id;
         this.placeholder = placeholder;
         this.value = value;
-        this.rules = ['required', 'mail', 'min', 'date'];
+        this.rules = rules;
     }
 
     create() {
@@ -21,24 +21,35 @@ class Form {
         this.input.style.marginTop = '10px'
         this.input.style.marginBottom = '10px'
         this.input.style.width = '400px'
-
         form.appendChild(this.input);
         return this
     }
+
 
     getValue() {
         this.input.setAttribute('type', `${this.type}`);
         this.input.setAttribute('id', `${this.id}`);
         this.input.setAttribute('placeholder', `${this.placeholder}`);
         this.input.setAttribute('value', `${this.value}`);
+        this.input.setAttribute('rules', `${this.rules}`);
         return this
     }
 
-    validate(indexOfRule) {
-        this.rules.forEach((element, index) => {
-            if (indexOfRule === index) {
-                this.input.setAttribute('rules', `${this.rules[index]}`);
-            }
+    validate() {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // const valueName = document.getElementById('name').value;
+            // const valueAge = Number(document.getElementById('age').value);
+            //
+            // if (!valueName) {
+            //     alert('Incorrect Data');
+            // } else if (!valueAge || valueAge < 10) {
+            //     alert('Incorrect Data');
+            // } else {
+            //     alert('Data is saved')
+            // }
+            console.log(this.rules);
         })
         return this
     }
@@ -46,14 +57,14 @@ class Form {
 }
 
 
-const formElementOne = new Form('text', 'name', 'Name', 'John');
-const formElementTwo = new Form('text', 'email', 'Email', 'mail@mail.com');
-const formElementThree = new Form('text', 'age', 'Age', '62');
-const formElementFour = new Form('text', 'birthdate', 'Date', '01.12.1962');
+const formElementOne = new Form('text', 'name', 'Name', 'John', ['name'] );
+const formElementTwo = new Form('text', 'email', 'Email', 'mail@mail.com', ['email']);
+const formElementThree = new Form('text', 'age', 'Age', '62', ['min']);
+const formElementFour = new Form('text', 'birthdate', 'Date', '01.12.1962', ['date']);
 const formElementFive = new Form('submit', 'submit', '', 'Submit');
-formElementOne.create().getValue().validate(0);
-formElementTwo.create().getValue().validate(1);
-formElementThree.create().getValue().validate(2);
-formElementFour.create().getValue().validate(3);
-formElementFive.create().getValue();
+formElementOne.create().getValue();
+formElementTwo.create().getValue();
+formElementThree.create().getValue();
+formElementFour.create().getValue();
+formElementFive.create().getValue().validate();
 
