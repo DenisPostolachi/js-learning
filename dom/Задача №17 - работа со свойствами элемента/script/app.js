@@ -1,19 +1,24 @@
 const box = document.querySelector('#box');
 
 //todo const
-let sizes = document.getElementById('box');
-let currentWidth = sizes.clientWidth;
-let currentHeight = sizes.clientHeight;
-
+//todo use `${}`
+// todo remove to string
 
 box.addEventListener('click', () => {
-    //todo use `${}`
-    //todo remove to string
-    document.getElementById('box').style.width = (Number(currentWidth) * 2).toString() + "px";
-    document.getElementById('box').style.height = (Number(currentHeight) * 2).toString() + "px";
-    alert(`width ${currentWidth} | height ${currentHeight}`);
-});
+    const width = box.offsetWidth;
+    const height = box.offsetHeight;
 
-console.log(currentWidth, currentHeight);
+    box.style.width = `${width * 2}px`
+    box.style.height = `${height * 2}px`
+
+    console.log(`${width} | ${height}`)
+
+})
+
+
+
+
+
+
 
 

@@ -1,20 +1,13 @@
 const list = document.querySelector('#user-list ul');
 const forms = document.forms;
+const deleteButtonsStatic = document.querySelectorAll('.delete');
 
-// удаляет
-list.addEventListener('click', (e) => {
-    // todo добавить обработчик на кнопку и удалить парент
-    if(e.target.className == 'delete'){
-        const li = e.target.parentElement;
-        li.parentNode.removeChild(li);
-    }
-});
 
 // добавляет
 const addForm = forms['add-user'];
 
 //todo ()=> ??
-addForm.addEventListener('submit', function(e){
+addForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     // создает
@@ -24,8 +17,8 @@ addForm.addEventListener('submit', function(e){
     const deleteBtn = document.createElement('span');
 
     // текст-контент
-    userName.textContent = value;
-    deleteBtn.textContent = 'delete';
+    userName.innerText = value;
+    deleteBtn.innerText = 'delete';
 
     // классы
     userName.classList.add('name');
@@ -33,7 +26,23 @@ addForm.addEventListener('submit', function(e){
 
     // вставляет в дом
     //todo .append
-    li.appendChild(userName);
-    li.appendChild(deleteBtn);
-    list.appendChild(li);
+    li.append(userName);
+    li.append(deleteBtn);
+    list.append(li);
+    addForm.reset();
+
+
+    deleteBtn.addEventListener('click', (e) => {
+        // todo добавить обработчик на кнопку и удалить парент
+            const parentElement = e.target.parentElement;
+            parentElement.parentNode.removeChild(parentElement);
+    });
 });
+
+deleteButtonsStatic.forEach((item) => {
+    item.addEventListener('click', (e) => {
+        // todo добавить обработчик на кнопку и удалить парент
+            const parentElement = e.target.parentElement;
+            parentElement.parentNode.removeChild(parentElement);
+    });
+})
