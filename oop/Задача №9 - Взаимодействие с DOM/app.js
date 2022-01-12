@@ -38,18 +38,26 @@ class Form {
     validate() {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            const valueName = document.getElementById('name').value;
+            const valueAge = Number(document.getElementById('age').value);
+            const errorMessage = document.createElement('div');
+            errorMessage.classList.add('text-align')
+            errorMessage.textContent = 'Invalid data'
 
-            // const valueName = document.getElementById('name').value;
-            // const valueAge = Number(document.getElementById('age').value);
-            //
-            // if (!valueName) {
-            //     alert('Incorrect Data');
-            // } else if (!valueAge || valueAge < 10) {
-            //     alert('Incorrect Data');
-            // } else {
-            //     alert('Data is saved')
-            // }
-            console.log(this.rules);
+
+            if (!valueName) {
+                document.getElementById('name').classList.add('error-display');
+                document.getElementById('name').parentNode.insertBefore(errorMessage, document.getElementById('name').nextSibling);
+            } else if (!valueAge || valueAge < 10) {
+                document.getElementById('age').classList.add('error-display');
+                document.getElementById('age').parentNode.insertBefore(errorMessage, document.getElementById('age').nextSibling);
+
+            } else {
+                document.getElementById('name').classList.remove('error-display');
+                alert('Data is saved')
+            }
+
+
         })
         return this
     }
@@ -57,7 +65,7 @@ class Form {
 }
 
 
-const formElementOne = new Form('text', 'name', 'Name', 'John', ['name'] );
+const formElementOne = new Form('text', 'name', 'Name', 'John', ['name']);
 const formElementTwo = new Form('text', 'email', 'Email', 'mail@mail.com', ['email']);
 const formElementThree = new Form('text', 'age', 'Age', '62', ['min']);
 const formElementFour = new Form('text', 'birthdate', 'Date', '01.12.1962', ['date']);
