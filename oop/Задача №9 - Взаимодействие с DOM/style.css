@@ -2,7 +2,21 @@
     border: 1px solid red;
 }
 
-.text-align {
+#error {
     text-align: center;
     color: red;
+}
+
+
+.success-display {
+    border: 1px solid green;
+}
+
+#success {
+    text-align: center;
+    color: green;
+}
+
+.hide-element {
+    display: none;
 }

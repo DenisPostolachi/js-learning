@@ -38,29 +38,41 @@ class Form {
     validate() {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const valueName = document.getElementById('name').value;
-            const valueAge = Number(document.getElementById('age').value);
+            const name = document.getElementById('name');
+            const age = document.getElementById('age');
+            const valueName = name.value;
+            const valueAge = Number(age.value);
+
             const errorMessage = document.createElement('div');
-            errorMessage.classList.add('text-align')
-            errorMessage.textContent = 'Invalid data'
+            errorMessage.setAttribute('id', 'error')
+            errorMessage.innerText = 'Invalid data'
+
+            const successMessage = document.createElement('div');
+            successMessage.setAttribute('id', 'success')
+            successMessage.innerText = 'Norm data'
 
 
             if (!valueName) {
-                document.getElementById('name').classList.add('error-display');
-                document.getElementById('name').parentNode.insertBefore(errorMessage, document.getElementById('name').nextSibling);
+                name.classList.add('error-display');
+                name.parentNode.insertBefore(errorMessage, name.nextSibling);
             } else if (!valueAge || valueAge < 10) {
-                document.getElementById('age').classList.add('error-display');
-                document.getElementById('age').parentNode.insertBefore(errorMessage, document.getElementById('age').nextSibling);
+                age.classList.add('error-display');
+                age.parentNode.insertBefore(errorMessage, age.nextSibling);
 
             } else {
-                document.getElementById('name').classList.remove('error-display');
-                alert('Data is saved')
+                document.getElementById('error').classList.add('hide-element')
+                name.parentNode.insertBefore(successMessage, name.nextSibling);
+                age.parentNode.insertBefore(successMessage, age.nextSibling);
             }
+
+
+
 
 
         })
         return this
     }
+
 
 }
 
