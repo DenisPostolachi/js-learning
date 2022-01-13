@@ -7,7 +7,7 @@ form.style.flexDirection = 'column';
 container.append(form)
 
 class Form {
-    constructor(type, id, placeholder, value, rules = []) {
+    constructor(type, id, placeholder, value, rules = {required: true, min: true}) {
         this.type = type;
         this.id = id;
         this.placeholder = placeholder;
@@ -22,11 +22,7 @@ class Form {
         this.input.style.marginBottom = '10px'
         this.input.style.width = '400px'
         form.appendChild(this.input);
-        return this
-    }
 
-
-    getValue() {
         this.input.setAttribute('type', `${this.type}`);
         this.input.setAttribute('id', `${this.id}`);
         this.input.setAttribute('placeholder', `${this.placeholder}`);
@@ -35,40 +31,12 @@ class Form {
         return this
     }
 
+
+
     validate() {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('name');
-            const age = document.getElementById('age');
-            const valueName = name.value;
-            const valueAge = Number(age.value);
-
-            const errorMessage = document.createElement('div');
-            errorMessage.setAttribute('id', 'error')
-            errorMessage.innerText = 'Invalid data'
-
-            const successMessage = document.createElement('div');
-            successMessage.setAttribute('id', 'success')
-            successMessage.innerText = 'Norm data'
-
-
-            if (!valueName) {
-                name.classList.add('error-display');
-                name.parentNode.insertBefore(errorMessage, name.nextSibling);
-            } else if (!valueAge || valueAge < 10) {
-                age.classList.add('error-display');
-                age.parentNode.insertBefore(errorMessage, age.nextSibling);
-
-            } else {
-                document.getElementById('error').classList.add('hide-element')
-                name.parentNode.insertBefore(successMessage, name.nextSibling);
-                age.parentNode.insertBefore(successMessage, age.nextSibling);
-            }
-
-
-
-
-
+            console.log(this.rules)
         })
         return this
     }
@@ -77,14 +45,14 @@ class Form {
 }
 
 
-const formElementOne = new Form('text', 'name', 'Name', 'John', ['name']);
-const formElementTwo = new Form('text', 'email', 'Email', 'mail@mail.com', ['email']);
-const formElementThree = new Form('text', 'age', 'Age', '62', ['min']);
-const formElementFour = new Form('text', 'birthdate', 'Date', '01.12.1962', ['date']);
+const formElementOne = new Form('text', 'name', 'Name', 'John', );
+const formElementTwo = new Form('text', 'email', 'Email', 'mail@mail.com',);
+const formElementThree = new Form('text', 'age', 'Age', '62', );
+const formElementFour = new Form('text', 'birthdate', 'Date', '01.12.1962',);
 const formElementFive = new Form('submit', 'submit', '', 'Submit');
-formElementOne.create().getValue();
-formElementTwo.create().getValue();
-formElementThree.create().getValue();
-formElementFour.create().getValue();
-formElementFive.create().getValue().validate();
+formElementOne.create()
+formElementTwo.create()
+formElementThree.create()
+formElementFour.create()
+formElementFive.create().validate();
 
