@@ -1,45 +1,46 @@
 let player = document.querySelector('#player');
-let container = document.querySelector('#container');
+
+const playerControl = {
+    playerLeft: 0,
+    playerTop: 0,
+
+    playerMoving(e) {
+        switch (e.keyCode) {
+            case 39:
+                playerControl.playerLeft += 8;
+                player.style.left = playerControl.playerLeft + 'px';
+                if (playerControl.playerLeft >= 450) {
+                    playerControl.playerLeft = 442
+                }
+                break;
+            case 37:
+                playerControl.playerLeft -= 8;
+                player.style.left = playerControl.playerLeft + 'px';
+                if (playerControl.playerLeft <= 0) {
+                    playerControl.playerLeft = 8
+                }
+                break;
+            case 40:
+                playerControl.playerTop += 8;
+                player.style.top = playerControl.playerTop + 'px';
+                if (playerControl.playerTop >= 450) {
+                    playerControl.playerTop = 442
+                }
+                break;
+            case 38:
+                playerControl.playerTop -= 8;
+                player.style.top = playerControl.playerTop + 'px';
+                if (playerControl.playerTop <= 0) {
+                    playerControl.playerTop = 8
+                }
+                break;
+        }
+    },
 
 
-let playerLeft = 0;
-let playerTop = 0;
-
-// todo переписать через объект, создать объект с функциями с
-// todo ключами соответствующими названию клавиш и вызывать при нажатии, пример methods[e.key]()
-
-// todo переписать через свич кейс и рассказать почему это оптимальней чем if/ if с return
-const playerMoving = (e) => {
-    //todo всегда использовать ===
-    if (e.keyCode == 39) {
-        playerLeft += 8;
-        player.style.left = playerLeft + 'px';
-        if (playerLeft >= 450) {
-            playerLeft = 442
-        }
-    }
-    if (e.keyCode == 37) {
-        playerLeft -= 8;
-        player.style.left = playerLeft + 'px';
-        if (playerLeft <= 0) {
-            playerLeft = 8
-        }
-    }
-    if (e.keyCode == 40) {
-        playerTop += 8;
-        player.style.top = playerTop + 'px';
-        if (playerTop >= 450) {
-            playerTop = 442
-        }
-    }
-    if (e.keyCode == 38) {
-        playerTop -= 8;
-        player.style.top = playerTop + 'px';
-        if (playerTop <= 0) {
-            playerTop = 8
-        }
-    }
 }
 
-//todo
-document.onkeydown = playerMoving;
+
+document.addEventListener('keydown', (e) => {
+    playerControl.playerMoving(e);
+})
