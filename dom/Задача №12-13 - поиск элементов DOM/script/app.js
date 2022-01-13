@@ -1,8 +1,8 @@
 //todo el
 
-const elem = document.querySelector('#elem');
-let firstChild = elem.firstElementChild;
+const element = document.querySelector('#elem');
+let firstChild = element.firstElementChild;
 firstChild.style.color = 'red';
 
 //todo innerText
-elem.previousElementSibling.textContent += ' !!!!!!';
+element.previousElementSibling.innerText += ' !!!!!!';
