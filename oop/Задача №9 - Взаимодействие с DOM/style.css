@@ -1,22 +1,17 @@
-.error-display {
-    border: 1px solid red;
+.error {
+    border-color: red;
 }
 
-#error {
+.success {
+    border-color: green;
+}
+
+.hide {
+    display: none;
     text-align: center;
     color: red;
 }
 
-
-.success-display {
-    border: 1px solid green;
-}
-
-#success {
-    text-align: center;
-    color: green;
-}
-
-.hide-element {
-    display: none;
+.show {
+    display: block;
 }
