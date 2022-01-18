@@ -6,7 +6,6 @@ const deleteButtonsStatic = document.querySelectorAll('.delete');
 // добавляет
 const addForm = forms['add-user'];
 
-//todo ()=> ??
 addForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -25,15 +24,12 @@ addForm.addEventListener('submit', (e) => {
     deleteBtn.classList.add('delete');
 
     // вставляет в дом
-    //todo .append
-    li.append(userName);
-    li.append(deleteBtn);
+    li.append(userName, deleteBtn);
     list.append(li);
     addForm.reset();
 
 
     deleteBtn.addEventListener('click', (e) => {
-        // todo добавить обработчик на кнопку и удалить парент
             const parentElement = e.target.parentElement;
             parentElement.parentNode.removeChild(parentElement);
     });
@@ -41,7 +37,6 @@ addForm.addEventListener('submit', (e) => {
 
 deleteButtonsStatic.forEach((item) => {
     item.addEventListener('click', (e) => {
-        // todo добавить обработчик на кнопку и удалить парент
             const parentElement = e.target.parentElement;
             parentElement.parentNode.removeChild(parentElement);
     });

@@ -2,8 +2,6 @@ const reduce = document.getElementById('reduce');
 const increase = document.getElementById('increase');
 const input = document.getElementById('input');
 
-//todo use const
-//todo use .value
 const inputValue = input.value;
 let inputValueInt = Number(inputValue);
 
@@ -11,7 +9,6 @@ let inputValueInt = Number(inputValue);
 
 
 reduce.addEventListener('click', (e) => {
-    //todo сначало инктремент потом присваниние (inputValueInt)
     inputValueInt -= 1
     input.setAttribute('value', inputValueInt);
 
@@ -25,7 +22,6 @@ reduce.addEventListener('click', (e) => {
 
 
 increase.addEventListener('click', (e) => {
-    //todo сначало инктремент потом присваниние (inputValueInt)
     inputValueInt += 1
     input.setAttribute('value', inputValueInt);
     if (inputValueInt > 0) {

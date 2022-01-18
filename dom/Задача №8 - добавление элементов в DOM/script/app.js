@@ -20,11 +20,7 @@ form.addEventListener("submit", (e) => {
 
 input.addEventListener('input', (e) => {
 
-    if (!e.target.value) {
-        button.disabled = true
-    } else {
-        button.disabled = false
-    }
+    button.disabled = !e.target.value;
 
 })
 

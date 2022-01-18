@@ -1,4 +1,5 @@
 const draggableElement = document.querySelector('#draggableElement');
+
 draggableElement.addEventListener('dragstart', (e) => {
     e.dataTransfer.setData("text/plain", draggableElement.id);
 })

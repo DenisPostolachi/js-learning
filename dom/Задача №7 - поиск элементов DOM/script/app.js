@@ -1,5 +1,4 @@
 const container = document.querySelector('.link-container');
-//todo нельзя объявлять пустые переменные
 let linksArray = [];
 
 
@@ -11,20 +10,18 @@ for (let i = 0; i <= 4; i++) {
     const elementsHttp = document.createElement('a');
     elementsHttp.href = 'http://orar.usarb.md/'
 
-    //todo use innerText
     elementsHttps.innerText = `Link hhtps `
     elementsHttp.innerText = `Link hhtp `
 
-    //todo use .append(...,...)
-    container.append(elementsHttps);
-    container.append(elementsHttp);
+    container.append(elementsHttps, elementsHttp);
+   // container.append(elementsHttp);
     linksArray.push(elementsHttps, elementsHttp);
 }
 
 
 linksArray.forEach((item) => {
 
-    //todo const
+    //todo rename
     const attributes = item.getAttribute('href');
 
     if (attributes.startsWith('https')) {
