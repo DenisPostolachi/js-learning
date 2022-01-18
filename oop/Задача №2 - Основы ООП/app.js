@@ -4,19 +4,19 @@ class Person {
         this.surname = surname;
     }
 
-    get getName() {
+     getName() {
         return this.name;
     }
 
-    get getSurname() {
+     getSurname() {
         return this.surname;
     }
 
-    set setName(value) {
+     setName(value) {
         this.name = value;
     }
 
-    set setSurname(value) {
+     setSurname(value) {
         this.surname = value;
     }
 }
@@ -24,5 +24,5 @@ class Person {
 const worker = new Person('Ivan', 'Ivanov');
 console.log(worker.getName)
 console.log(worker.getSurname)
-worker.setSurname = 'Cocksley';
+worker.setSurname('Cocksley');
 console.log(worker.getSurname);

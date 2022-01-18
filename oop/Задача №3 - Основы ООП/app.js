@@ -1,9 +1,9 @@
 class Worker {
     constructor(name, surname, rate, days) {
-        this.name = name,
-        this.surname = surname,
-        this.rate = rate,
-        this.days = days
+        this.name = name;
+        this.surname = surname;
+        this.rate = rate;
+        this.days = days;
     }
     getSalary() {
         return this.days * this.rate;
@@ -12,6 +12,7 @@ class Worker {
 
 const worker = new Worker('Ivan', 'Ivanov', 777, 10);
 const workerCeo = new Worker('Arthur', 'Cocksley', 10000, 20);
+
 console.log(worker.name);
 console.log(worker.surname);
 console.log(worker.rate);

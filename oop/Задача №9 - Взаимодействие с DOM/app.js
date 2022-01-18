@@ -2,7 +2,7 @@ const container = document.querySelector('.container');
 form = document.createElement('form');
 form.style.display = 'flex';
 form.style.flexDirection = 'column';
-container.append(form)
+container.append(form);
 
 class Form {
     constructor(type, id, placeholder, value, rules = {}) {
@@ -89,10 +89,7 @@ class Form {
         })
         return this
     }
-
-
 }
-
 
 const formElementOne = new Form('text', 'name', 'Name', 'John', {required: true});
 const formElementTwo = new Form('text', 'email', 'Email', 'mail@mail.com', {required: true});
@@ -104,4 +101,33 @@ formElementTwo.create().createErrorMessage('email');
 formElementThree.create().createErrorMessage('age');
 formElementFour.create().createErrorMessage('birthdate');
 formElementFive.create().validate();
+
+
+//todo exemple
+const rules = [
+    (v)=> !!v || 'Required rule',
+    (v)=> /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v) || 'Incorrect email format',
+    (v) => v.length > 15 || 'Min length is 15'
+]
+
+//todo 1
+const validate = (str) => {
+    for (const rule of rules) {
+        const validateRule = rule(str);
+
+        if (typeof validateRule !== 'boolean') {
+            return validateRule;
+        }
+    }
+    return true;
+}
+
+//todo 2
+const validate2 = (str) => {
+    return rules.map(rule => rule(str)).filter(item => typeof item !== 'boolean')
+}
+
+console.log(validate2('dfgfddgfdgfdgdf@fg.ff'))
+
+
 

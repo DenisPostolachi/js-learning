@@ -1,6 +1,5 @@
 class Element {
     constructor(selector) {
-        this.selector = selector;
         this.element = document.createElement(`${selector}`);
     }
 

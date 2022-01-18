@@ -5,20 +5,13 @@ class Validator {
     }
 
     static isNumber(num) {
-        if (typeof num === 'number') {
-            return true;
-        } else {
-            return false
-        }
+        return typeof num === 'number';
     }
 
     static isPhone(phone) {
         let regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
-        if(!regex.test(phone)){
-            return false
-        }else{
-            return true
-        }
+
+        return regex.test(phone)
     }
 
 }
