@@ -16,8 +16,8 @@ for (let i = 0; i <= 4; i++) {
     elementsHttp.innerText = `Link hhtp `
 
     //todo use .append(...,...)
-    container.appendChild(elementsHttps);
-    container.appendChild(elementsHttp);
+    container.append(elementsHttps);
+    container.append(elementsHttp);
     linksArray.push(elementsHttps, elementsHttp);
 }
 
