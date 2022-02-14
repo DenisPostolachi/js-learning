@@ -9,7 +9,7 @@ btn.addEventListener('click', () => {
 
     const calcDate = (date1, date2) => {
         let difference = Math.floor(date1.getTime() - date2.getTime());
-        let day = 1000 * 60 * 60 * 24;
+        const day = 1000 * 60 * 60 * 24;
 
         const days = Math.floor(difference / day);
         const months = Math.floor(days / 31);
