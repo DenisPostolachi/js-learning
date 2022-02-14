@@ -1,0 +1,61 @@
+const btn = document.getElementById('btn');
+const textContainer = document.getElementById('text-container');
+let minutes = 0;
+let seconds = 0;
+let hours = 0;
+let start = 0;
+
+
+
+function countdownTimer() {
+
+    if (start === 0 && document.getElementById('mns') && document.getElementById('scs')) {
+
+        minutes = Number(document.getElementById('mns').value);
+        seconds = Number(document.getElementById('scs').value);
+        hours = Number(document.getElementById('hrs').value);
+
+        if (isNaN(minutes)) minutes = 0;
+        if (isNaN(seconds)) seconds = 0;
+
+        document.getElementById('mns').value = minutes;
+        document.getElementById('scs').value = seconds;
+        document.getElementById('hrs').value = hours;
+        start = 1;
+        document.getElementById('btn').setAttribute('disabled', 'disabled');
+    }
+
+    if (minutes === 0 && seconds === 0 && hours === 0) {
+        start = 0;
+        document.getElementById('btn').removeAttribute('disabled');
+        textContainer.innerText = 'Count is over'
+        return false;
+    } else {
+
+        seconds--;
+        if (seconds < 0) {
+            if (minutes > 0) {
+                seconds = 59;
+                minutes--;
+            } else {
+                seconds = 0;
+                minutes = 0;
+            }
+        }
+
+        if (minutes === 0 && seconds === 0) {
+                hours--
+                minutes = 59
+        }
+    }
+
+    document.getElementById('showhrs').innerHTML = hours;
+    document.getElementById('showmns').innerHTML = minutes;
+    document.getElementById('showscs').innerHTML = seconds;
+    setTimeout('countdownTimer()', 1000);
+}
+
+btn.addEventListener('click', () => {
+    countdownTimer()
+})
+
