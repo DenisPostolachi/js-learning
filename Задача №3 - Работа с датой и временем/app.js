@@ -4,7 +4,6 @@ const hoursElement = document.getElementById('hrs')
 const minutesElement = document.getElementById('mns')
 const secondsElement = document.getElementById('scs')
 
-
 hoursElement.addEventListener('keyup', ({target}) => {
     const parsedValue = Number(target.value);
 
@@ -35,48 +34,47 @@ let hours = 0;
 let seconds = 0;
 let start = 0;
 
-
+//TODO remove document.getElementById
 const countdownTimer = () => {
 
-    if (start === 0 && document.getElementById('mns') && document.getElementById('scs')) {
+    if (start === 0 && minutesElement && secondsElement) {
 
-        minutes = Number(document.getElementById('mns').value);
+        minutes = Number(minutesElement.value);
         seconds = Number(document.getElementById('scs').value);
         hours = Number(document.getElementById('hrs').value);
 
         if (isNaN(minutes)) minutes = 0;
         if (isNaN(seconds)) seconds = 0;
 
-        document.getElementById('mns').value = minutes;
+        minutesElement.value = minutes;
         document.getElementById('scs').value = seconds;
         document.getElementById('hrs').value = hours;
         start = 1;
         document.getElementById('btn').setAttribute('disabled', 'disabled');
     }
 
+    //TODO remove === 0
     if (minutes === 0 && seconds === 0 && hours === 0) {
         start = 0;
         document.getElementById('btn').removeAttribute('disabled');
         textContainer.innerText = 'Count is over'
         return false;
-    } else {
+    }
 
-        seconds--;
-        if (seconds < 0) {
-            if (minutes > 0) {
-                seconds = 59;
-                minutes--;
-            } else {
-                seconds = 0;
-                minutes = 0;
-            }
+    seconds--;
+    if (seconds < 0) {
+        if (minutes > 0) {
+            seconds = 59;
+            minutes--;
+        } else {
+            seconds = 0;
+            minutes = 0;
         }
+    }
 
-        if (minutes === 0 && seconds === 0) {
-                hours--
-                minutes = 60
-        }
-
+    if (minutes === 0 && seconds === 0) {
+        hours--;
+        minutes = 60;
     }
 
     document.getElementById('showhrs').innerHTML = hours;
@@ -86,6 +84,6 @@ const countdownTimer = () => {
 }
 
 btn.addEventListener('click', () => {
-    countdownTimer()
+    countdownTimer();
 })
 
