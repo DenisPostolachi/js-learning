@@ -1,13 +1,42 @@
 const btn = document.getElementById('btn');
 const textContainer = document.getElementById('text-container');
+const hoursElement = document.getElementById('hrs')
+const minutesElement = document.getElementById('mns')
+const secondsElement = document.getElementById('scs')
+
+
+hoursElement.addEventListener('keyup', ({target}) => {
+    const parsedValue = Number(target.value);
+
+    if (parsedValue > 24) {
+        target.value = '';
+    }
+});
+
+minutesElement.addEventListener('keyup', ({target}) => {
+    const parsedValue = Number(target.value);
+
+    if (parsedValue > 60) {
+        target.value = '';
+    }
+});
+
+secondsElement.addEventListener('keyup', ({target}) => {
+    const parsedValue = Number(target.value);
+
+    if (parsedValue > 60) {
+        target.value = '';
+    }
+});
+
+
 let minutes = 0;
-let seconds = 0;
 let hours = 0;
+let seconds = 0;
 let start = 0;
 
 
-
-function countdownTimer() {
+const countdownTimer = () => {
 
     if (start === 0 && document.getElementById('mns') && document.getElementById('scs')) {
 
@@ -45,8 +74,9 @@ function countdownTimer() {
 
         if (minutes === 0 && seconds === 0) {
                 hours--
-                minutes = 59
+                minutes = 60
         }
+
     }
 
     document.getElementById('showhrs').innerHTML = hours;
