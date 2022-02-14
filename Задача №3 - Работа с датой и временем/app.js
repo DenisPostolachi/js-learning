@@ -3,7 +3,7 @@ const textContainer = document.getElementById('text-container');
 const hoursElement = document.getElementById('hrs')
 const minutesElement = document.getElementById('mns')
 const secondsElement = document.getElementById('scs')
-const showHours =
+
 
 hoursElement.addEventListener('keyup', ({target}) => {
     const parsedValue = Number(target.value);
