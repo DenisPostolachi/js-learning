@@ -95,25 +95,27 @@ let workers = {
 // document.body.innerHTML += `<pre>${formattedJson}</pre>`;
 
 const salaries = [];
-Object.keys(workers).forEach((i) => {
-    salaries.push(workers[i].work.salary);
+Object.keys(workers).forEach((item) => {
+    salaries.push(workers[item].work.salary);
 })
 
 const average = nums => {
-    return nums.reduce((previousValue, currentValue) => (previousValue + currentValue)) / nums.length;
+    const averageNum = nums.reduce((previousValue, currentValue) => (previousValue + currentValue), 0) / nums.length;
+    console.log(`average num is ${averageNum}`)
 }
-console.log(average(salaries));
+average(salaries);
 
 const minAndMax = nums => {
     nums.sort((previousValue, currentValue) => previousValue - currentValue)
     let min = nums[0];
-    let max = nums[nums.length-1]
+    let max = nums[nums.length - 1]
     console.log(`minimal value is ${min}`)
     console.log(`max value is ${max}`)
 }
 minAndMax(salaries)
 
 const sum = nums => {
-    return nums.reduce((previousValue, currentValue) => (previousValue + currentValue));
+    const sumSalaries = nums.reduce((previousValue, currentValue) => (previousValue + currentValue), 0);
+    console.log(`sum of salaries is ${sumSalaries}`)
 }
-console.log(sum(salaries));
+sum(salaries);
