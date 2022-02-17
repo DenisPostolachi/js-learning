@@ -1,0 +1,19 @@
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+.btn-close {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    height: 30px;
+    margin-top: 7px;
+    border-radius: 10px;
+}

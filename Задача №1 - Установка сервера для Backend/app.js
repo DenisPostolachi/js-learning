@@ -10,7 +10,7 @@ const getResponse = async () => {
         }
 
     } catch (e) {
-        console.log('pentru si a stins jsonserver, boule')
+        console.log('server is down')
     }
 }
 
