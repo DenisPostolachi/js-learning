@@ -35,7 +35,7 @@ let hours = 0;
 let seconds = 0;
 let start = 0;
 
-//TODO remove document.getElementById
+
 const countdownTimer = () => {
 
     if (start === 0 && minutesElement && secondsElement) {
