@@ -8,6 +8,21 @@ const weekDays = {
     'Su': 'Воскресенье',
 }
 
+const translatedWeekDays = {
+    'Mo': 'Luni',
+    'Tu': 'Marti',
+    'We': 'Miercuri',
+    'Th': 'Joi',
+    'Fr': 'Vineri',
+    'Sa': 'Simbata',
+    'Su': 'Duminica',
+}
+
+// todo
+for (let weekDay in weekDays) {
+    weekDays[weekDay] = translatedWeekDays[weekDay]
+}
+
 for (let weekDay in weekDays) {
     if (weekDays[weekDay] == 'Понедельник') {
         weekDays[weekDay] = 'Luni'

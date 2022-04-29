@@ -1,11 +1,11 @@
 let points = [
-    [1, 2],
-    [3, 4],
-    [null,  4],
-    [3, undefined]
-]
+  { x: 1, y: 2 },
+  { x: 3, y: 4 },
+  { x: null, y: 4 },
+  { x: 3, y: undefined },
+];
 const checkPoints = (arr) => {
-    return arr.filter(item => item[0] && item[1])
+  return arr.filter((item) => item.x && item.y);
 };
 
 console.log(checkPoints(points));

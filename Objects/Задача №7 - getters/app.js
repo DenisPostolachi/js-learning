@@ -8,7 +8,7 @@ const person = {
     },
     address: "Moldova"
 }
+
+// todo incoreсt, методы должны пренаплежать объекту
 const getName = () => console.log(person.name);
 const getAge = () => console.log(person.age);
-
-getName()

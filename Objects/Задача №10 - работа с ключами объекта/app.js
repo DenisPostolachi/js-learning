@@ -14,7 +14,7 @@ let personTwo = {
     age: 123,
     salary: 1542.33,
     contacts: {
-        phone: '112',
+        phone: '2112',
         email: 'email@domain.kz'
     },
     address: 'Moldova'

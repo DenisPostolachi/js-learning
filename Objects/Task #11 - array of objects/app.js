@@ -26,22 +26,18 @@ let students = [
 ]
 
 let averageCount = (arr) => {
-
-    arr.forEach((studentItem, index) => {
-        let nameItems = studentItem.name;
-        let marksItemsNotesAverage = studentItem.marks.reduce((a, b) => (a + b), 0) / studentItem.marks.length;
-        console.log(`${marksItemsNotesAverage} - ${nameItems}`);
+    arr.forEach((student, index) => {
+        const marksItemsNotesAverage = student.marks.reduce((a, b) => (a + b), 0) / student.marks.length;
+        console.log(`${marksItemsNotesAverage} - ${student.name}`);
     })
-
 }
 
 // averageCount(students);
 
 let averageMarkLessFive = (arr) => {
-
-    arr.forEach((studentItem, index) => {
-        let nameItems = studentItem.name;
-        let marksItemsNotesAverage = studentItem.marks.reduce((a, b) => (a + b), 0) / studentItem.marks.length;
+    arr.forEach((student, index) => {
+        let nameItems = student.name;
+        let marksItemsNotesAverage = student.marks.reduce((a, b) => (a + b), 0) / studentItem.marks.length;
 
         if (marksItemsNotesAverage < 5) {
             console.log(`${marksItemsNotesAverage} - ${nameItems}`);
@@ -51,6 +47,18 @@ let averageMarkLessFive = (arr) => {
 }
 
 // averageMarkLessFive(students);
+
+// todo
+const minMaxMark = (arr) => {
+    const newArray = arr.map(item => {
+        item.average = item.marks.reduce((acc, value) => (acc + value), 0) / item.marks.length
+        return item;
+    } )
+
+    const [min] = newArray.sort((a, b) => a.average - b.average)
+    const [max] = newArray.sort((a, b) => b.average - a.average)
+    console.log(min, max)
+}
 
 let minMaxMarkFind = (arr) => {
 
@@ -80,6 +88,17 @@ let minMaxMarkFind = (arr) => {
 
 // minMaxMarkFind(students);
 
+
+// todo
+let studentDecreaseSort2 = (arr) => {
+    const newArray = arr.map(item => {
+        item.average = item.marks.reduce((acc, value) => (acc + value), 0) / item.marks.length
+        return item;
+    })
+
+    console.log(newArray.sort((a, b) => a.average - b.average));
+}
+
 let studentDecreaseSort = (arr) => {
 
     let studentNames = [];
@@ -107,6 +126,17 @@ let studentDecreaseSort = (arr) => {
 }
 
 // studentDecreaseSort(students);
+
+// todo
+let moreThenAverage2 = (arr) => {
+    const newArray = arr.map(item => {
+        item.average = item.marks.reduce((acc, value) => (acc + value), 0) / item.marks.length
+        return item;
+    })
+
+    const defaultAverage = newArray.reduce((acc, value) => (acc + value.average), 0) / newArray.marks.length
+    console.log(newArray.filter((item) => item.average > defaultAverage));
+}
 
 let moreThenAverage = (arr) => {
     let studentNames = [];
