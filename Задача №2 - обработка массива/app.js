@@ -87,7 +87,7 @@ let studentDecreaseSort = (arr) => {
 
     arr.forEach((studentItem, index) => {
         studentNames.push(studentItem.name);
-        let marksItemsNotes = studentItem.marks.reduce((a, b) => (a + b), 0) / studentItem.marks.length;
+        let marksItemsNotes = studentItem.marks.reduce((acc, currentValue) => (acc + currentValue), 0) / studentItem.marks.length;
         averageNotes.push(marksItemsNotes);
     })
 
@@ -118,7 +118,7 @@ let moreThenAverage = (arr) => {
         averageNotes.push(marksItemsNotes);
     });
 
-    let averageMarkAllStudents = averageNotes.reduce((a, b) => (a + b), 0) / averageNotes.length;
+    let averageMarkAllStudents = averageNotes.reduce((acc, currentValue) => (acc + currentValue), 0) / averageNotes.length;
 
     averageNotes.forEach((noteItem, index) => {
         let nameItem = studentNames[index];
