@@ -68,10 +68,10 @@ let minMaxMarkFind = (arr) => {
 
     averageNotes.forEach((noteItem, index) => {
         let nameItem = studentNames[index];
-        if (noteItem == minimalNote) {
+        if (noteItem === minimalNote) {
             console.log(`${nameItem} has the lowest note - ${noteItem}`);
         }
-        if (noteItem == maximalNote) {
+        if (noteItem === maximalNote) {
             console.log(`${nameItem} has the highest note - ${noteItem}`);
         }
     })
@@ -98,7 +98,7 @@ let studentDecreaseSort = (arr) => {
 
 
     list.sort((a, b) => {
-        return ((a.note < b.note) ? -1 : ((a.note == b.note) ? 0 : 1));
+        return ((a.note < b.note) ? -1 : ((a.note === b.note) ? 0 : 1));
     })
 
     list.reverse();
@@ -114,7 +114,7 @@ let moreThenAverage = (arr) => {
 
     arr.forEach((studentItem, index) => {
         studentNames.push(studentItem.name);
-        let marksItemsNotes = studentItem.marks.reduce((a, b) => (a + b), 0) / studentItem.marks.length;
+        let marksItemsNotes = studentItem.marks.reduce((acc, currentValue) => (acc + currentValue), 0) / studentItem.marks.length;
         averageNotes.push(marksItemsNotes);
     });
 
