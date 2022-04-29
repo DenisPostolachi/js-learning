@@ -22,9 +22,11 @@ let personTwo = {
 
 function findCommonValues(personOne, personTwo) {
     let result = {}
+
     for (let key in personOne) {
-        if (personOne[key] && personOne[key] === personTwo[key]) result[key] = personOne[key]
-        else if (typeof personOne[key] === 'object' && personOne[key] !== null) {
+        if (personOne[key] === personTwo[key]) {
+            result[key] = personOne[key]
+        } else if (typeof personOne[key] === 'object' && personOne[key] !== null) {
             result[key] = findCommonValues(personOne[key], personTwo[key])
         }
     }

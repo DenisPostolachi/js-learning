@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ac47c1f-474b-4cf2-b21c-fa073304eebd" name="Changes" comment="branch init" />
+    <list default="true" id="0ac47c1f-474b-4cf2-b21c-fa073304eebd" name="Changes" comment="content add">
+      <change afterPath="$PROJECT_DIR$/Objects/Task #11 - array of objects/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Objects/Task #11 - array of objects/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/Задача №10 - работа с ключами объекта/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/Задача №10 - работа с ключами объекта/app.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +61,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.Task  (1)" />
+        <item itemvalue="JavaScript Debug.Task " />
         <item itemvalue="JavaScript Debug.Task  (1)" />
         <item itemvalue="JavaScript Debug.Task " />
       </list>
