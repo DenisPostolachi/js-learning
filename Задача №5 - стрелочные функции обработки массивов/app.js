@@ -5,7 +5,7 @@ let square = (arr) => {
 }
 
 let convert = (fn, arr) => {
-    return fn(arr);
+    return arr.map(fn);
 }
 
 let nums = [2, 5, 9];
