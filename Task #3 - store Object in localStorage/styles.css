@@ -1,0 +1,16 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control {
+    margin: 10px 0;
+}
+
+#form {
+    display: flex;
+    justify-content: center;
+}
