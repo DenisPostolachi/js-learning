@@ -5,11 +5,11 @@ const newUsername = "";
 const newPassword = "";
 
 if (username === newUsername && password === newPassword) {
-    alert("Привет")
+    console.log("Привет")
 }  else if (username === newUsername ) {
-    alert("Неправильный пароль")
+    console.log("Неправильный пароль")
 } else if (password === newPassword) {
-    alert("Неправильный username")
+    console.log("Неправильный username")
 }  else if (!newPassword && !newUsername) {
     alert("Ошибка Валидации")
 }
