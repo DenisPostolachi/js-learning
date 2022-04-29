@@ -54,8 +54,7 @@ const countdownTimer = () => {
         document.getElementById('btn').setAttribute('disabled', 'disabled');
     }
 
-    //TODO remove === 0
-    if (minutes === 0 && seconds === 0 && hours === 0) {
+    if (!minutes && !seconds && !hours) {
         start = 0;
         document.getElementById('btn').removeAttribute('disabled');
         textContainer.innerText = 'Count is over'

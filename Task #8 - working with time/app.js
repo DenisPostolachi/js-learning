@@ -3,14 +3,14 @@ const startBtn = document.getElementById('start')
 const stopBtn = document.getElementById('stop')
 
 const update = () => {
-    //TODO let -> const;
-    //TODO remove from scope
-    let clock = document.getElementById('clock');
-    let date = new Date();
+    const clock = document.getElementById('clock');
+    const date = new Date();
 
     let hours = date.getHours();
-    //TODO normal condition
-    if (hours < 10) hours = `0${hours}`;
+
+    if (hours < 10) {
+        hours = `0${hours}`
+    }
     clock.children[0].innerHTML = hours;
 
     let minutes = date.getMinutes();
