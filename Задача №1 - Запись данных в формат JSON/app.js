@@ -90,9 +90,9 @@ let workers = {
         }
     }
 }
-
-// let formattedJson = JSON.stringify(workers, null, 4);
-// document.body.innerHTML += `<pre>${formattedJson}</pre>`;
+// todo нужно создать интерфэйс для вывода данных
+let formattedJson = JSON.stringify(workers, null, 4);
+document.body.innerHTML += `<pre>${formattedJson}</pre>`;
 
 const salaries = [];
 Object.keys(workers).forEach((item) => {
