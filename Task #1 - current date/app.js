@@ -1,5 +1,6 @@
 const currentDate = separator => {
-    console.log(new Date().toJSON().slice(0, 10).replace(/-/g, separator));
+    const arr = new Date().toISOString().slice(0, 10).split('-').join(separator);
+    console.log(arr);
 }
 
 currentDate('/');

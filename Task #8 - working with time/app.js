@@ -2,6 +2,8 @@ let startCount;
 const startBtn = document.getElementById('start')
 const stopBtn = document.getElementById('stop')
 
+
+// todo i can't stop the timer, fix it
 const update = () => {
     const clock = document.getElementById('clock');
     const date = new Date();

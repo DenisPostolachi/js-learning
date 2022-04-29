@@ -21,7 +21,7 @@ minutesElement.addEventListener('keyup', ({target}) => {
     }
 });
 
-secondsElement.addEventListener('keyup', ({target}) => {
+secondsElement.addEventListener('input', ({target}) => {
     const parsedValue = Number(target.value);
 
     if (parsedValue > 60) {
@@ -35,9 +35,34 @@ let hours = 0;
 let seconds = 0;
 let start = 0;
 
-
 const countdownTimer = () => {
+    const hoursElement = document.getElementById('hrs')
+    const minutesElement = document.getElementById('mns')
+    const secondsElement = document.getElementById('scs')
 
+    minutes = Number(minutesElement.value);
+    seconds = Number(secondsElement.value);
+    hours = Number(hoursElement.value);
+
+    let timer = seconds + minutes * 60 + hours * 60 * 60;
+    let timeInterval;
+
+    const updateTimer = () => {
+        console.log(timer)
+        secondsElement.value = timer;
+
+        if (!timer) {
+            clearInterval(timeInterval)
+        }
+
+        timer--;
+    }
+
+    timeInterval =  setInterval(updateTimer, 1000)
+    //todo make method for update time in interface
+}
+
+const countdownTimer2 = () => {
     if (start === 0 && minutesElement && secondsElement) {
 
         minutes = Number(minutesElement.value);
@@ -54,7 +79,7 @@ const countdownTimer = () => {
         document.getElementById('btn').setAttribute('disabled', 'disabled');
     }
 
-    if (!minutes && !seconds && !hours) {
+    if (minutes === 0 && seconds === 0 && hours === 0) {
         start = 0;
         document.getElementById('btn').removeAttribute('disabled');
         textContainer.innerText = 'Count is over'
