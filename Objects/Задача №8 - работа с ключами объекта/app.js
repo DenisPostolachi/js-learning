@@ -19,32 +19,11 @@ const translatedWeekDays = {
 }
 
 // todo
-for (let weekDay in weekDays) {
-    weekDays[weekDay] = translatedWeekDays[weekDay]
-}
 
-for (let weekDay in weekDays) {
-    if (weekDays[weekDay] == 'Понедельник') {
-        weekDays[weekDay] = 'Luni'
-    }
-    if (weekDays[weekDay] == 'Вторник') {
-        weekDays[weekDay] = 'Marti'
-    }
-    if (weekDays[weekDay] == 'Среда') {
-        weekDays[weekDay] = 'Miercuri'
-    }
-    if (weekDays[weekDay] == 'Четверг') {
-        weekDays[weekDay] = 'Joi'
-    }
-    if (weekDays[weekDay] == 'Пятница') {
-        weekDays[weekDay] = 'Vineri'
-    }
-    if (weekDays[weekDay] == 'Суббота') {
-        weekDays[weekDay] = 'Simbata'
-    }
-    if (weekDays[weekDay] == 'Воскресенье') {
-        weekDays[weekDay] = 'Duminica'
-    }
-}
+const keys = Object.keys(weekDays)
+const values = Object.values(translatedWeekDays)
 
-console.log(weekDays)
+const result = {};
+keys.forEach((key, index) => result[key] = values[index]);
+console.log(result);
+

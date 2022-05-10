@@ -6,9 +6,15 @@ const person = {
         phone: "112",
         email: "email@domain.com"
     },
-    address: "Moldova"
+    address: "Moldova",
+    getName() {
+        console.log(this.name)
+    },
+    getAge() {
+        console.log(this.age)
+    }
 }
 
-// todo incoreсt, методы должны пренаплежать объекту
-const getName = () => console.log(person.name);
-const getAge = () => console.log(person.age);
+
+person.getName()
+person.getAge()
