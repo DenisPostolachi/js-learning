@@ -60,34 +60,7 @@ const minMaxMark = (arr) => {
     console.log(min, max)
 }
 
-let minMaxMarkFind = (arr) => {
-
-    let studentNames = [];
-    let averageNotes = [];
-
-    arr.forEach((studentItem, index) => {
-        studentNames.push(studentItem.name);
-        let marksItemsNotes = studentItem.marks.reduce((a, b) => (a + b), 0) / studentItem.marks.length;
-        averageNotes.push(marksItemsNotes);
-    })
-
-    let minimalNote = Math.min.apply(Math, averageNotes);
-    let maximalNote = Math.max.apply(Math, averageNotes);
-
-    averageNotes.forEach((noteItem, index) => {
-        let nameItem = studentNames[index];
-        if (noteItem === minimalNote) {
-            console.log(`${nameItem} has the lowest note - ${noteItem}`);
-        }
-        if (noteItem === maximalNote) {
-            console.log(`${nameItem} has the highest note - ${noteItem}`);
-        }
-    })
-
-}
-
 // minMaxMarkFind(students);
-
 
 // todo
 let studentDecreaseSort2 = (arr) => {
@@ -97,32 +70,6 @@ let studentDecreaseSort2 = (arr) => {
     })
 
     console.log(newArray.sort((a, b) => a.average - b.average));
-}
-
-let studentDecreaseSort = (arr) => {
-
-    let studentNames = [];
-    let averageNotes = [];
-
-    arr.forEach((studentItem, index) => {
-        studentNames.push(studentItem.name);
-        let marksItemsNotes = studentItem.marks.reduce((acc, currentValue) => (acc + currentValue), 0) / studentItem.marks.length;
-        averageNotes.push(marksItemsNotes);
-    })
-
-    let list = [];
-    studentNames.forEach((item, index) => {
-        list.push({'name': studentNames[index], 'note': averageNotes[index]})
-    })
-
-
-    list.sort((a, b) => {
-        return ((a.note < b.note) ? -1 : ((a.note === b.note) ? 0 : 1));
-    })
-
-    list.reverse();
-    console.log(list);
-
 }
 
 // studentDecreaseSort(students);
@@ -138,25 +85,6 @@ let moreThenAverage2 = (arr) => {
     console.log(newArray.filter((item) => item.average > defaultAverage));
 }
 
-let moreThenAverage = (arr) => {
-    let studentNames = [];
-    let averageNotes = [];
 
-    arr.forEach((studentItem, index) => {
-        studentNames.push(studentItem.name);
-        let marksItemsNotes = studentItem.marks.reduce((acc, currentValue) => (acc + currentValue), 0) / studentItem.marks.length;
-        averageNotes.push(marksItemsNotes);
-    });
 
-    let averageMarkAllStudents = averageNotes.reduce((acc, currentValue) => (acc + currentValue), 0) / averageNotes.length;
-
-    averageNotes.forEach((noteItem, index) => {
-        let nameItem = studentNames[index];
-
-        if (noteItem > averageMarkAllStudents) {
-            console.log(`${noteItem} of ${nameItem} are greatest then average - ${averageMarkAllStudents}`);
-        }
-    })
-}
-
-moreThenAverage(students);
+moreThenAverage2(students);
