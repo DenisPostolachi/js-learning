@@ -85,37 +85,58 @@ let workers = {
             "department": "clear",
             "extra_info": {
                 "home_phone": "0231-77777",
-                "schedule": "from 8:00 to 9:00"
+                "schedule": "from 8:00 to 9:00",
+                "test": "qwerty"
             }
         }
     }
 }
+
 // todo нужно создать интерфэйс для вывода данных
-let formattedJson = JSON.stringify(workers, null, 4);
-document.body.innerHTML += `<pre>${formattedJson}</pre>`;
 
-const salaries = [];
-Object.keys(workers).forEach((item) => {
-    salaries.push(workers[item].work.salary);
-})
+const container = document.getElementById('container')
 
-const average = nums => {
-    const averageNum = nums.reduce((previousValue, currentValue) => (previousValue + currentValue), 0) / nums.length;
-    console.log(`average num is ${averageNum}`)
+const createHtmlList = obj => {
+    let output = "";
+    Object.keys(obj).forEach((workerInfo) => {
+
+        if (typeof obj[workerInfo] === "object" && obj[workerInfo] !== null){
+            output += "<li>" +  workerInfo + "<ul>";
+            output += createHtmlList(obj[workerInfo]);
+            output += "</ul></li>";
+        } else {
+            output += "<li>" + workerInfo + " : " + obj[workerInfo] + "</li>";
+        }
+    });
+    container.innerHTML = output
+    return output;
 }
-average(salaries);
 
-const minAndMax = nums => {
-    nums.sort((previousValue, currentValue) => previousValue - currentValue)
-    let min = nums[0];
-    let max = nums[nums.length - 1]
-    console.log(`minimal value is ${min}`)
-    console.log(`max value is ${max}`)
-}
-minAndMax(salaries)
+createHtmlList(workers)
 
-const sum = nums => {
-    const sumSalaries = nums.reduce((previousValue, currentValue) => (previousValue + currentValue), 0);
-    console.log(`sum of salaries is ${sumSalaries}`)
-}
-sum(salaries);
+
+// const salaries = [];
+// Object.keys(workers).forEach((item) => {
+//     salaries.push(workers[item].work.salary);
+// })
+//
+// const average = nums => {
+//     const averageNum = nums.reduce((previousValue, currentValue) => (previousValue + currentValue), 0) / nums.length;
+//     console.log(`average num is ${averageNum}`)
+// }
+// average(salaries);
+//
+// const minAndMax = nums => {
+//     nums.sort((previousValue, currentValue) => previousValue - currentValue)
+//     let min = nums[0];
+//     let max = nums[nums.length - 1]
+//     console.log(`minimal value is ${min}`)
+//     console.log(`max value is ${max}`)
+// }
+// minAndMax(salaries)
+//
+// const sum = nums => {
+//     const sumSalaries = nums.reduce((previousValue, currentValue) => (previousValue + currentValue), 0);
+//     console.log(`sum of salaries is ${sumSalaries}`)
+// }
+// sum(salaries);
