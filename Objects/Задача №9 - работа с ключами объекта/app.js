@@ -9,11 +9,6 @@ const weekDays = {
 }
 
 
-let keyValuesSwap = (obj) => {
-    let keys = Object.keys(obj);
-    let values = Object.values(obj);
-    return Object.assign(...values.map((k, i) => ({[k]: keys[i]})))
-}
 
 // todo
 const keyValuesSwap2 = (obj) => {
@@ -23,6 +18,4 @@ const keyValuesSwap2 = (obj) => {
 }
 
 
-
-console.log(keyValuesSwap(weekDays));
 console.log(keyValuesSwap2(weekDays));
