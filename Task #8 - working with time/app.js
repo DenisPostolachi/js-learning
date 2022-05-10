@@ -26,10 +26,12 @@ const update = () => {
 
 startBtn.addEventListener('click', () => {
     startCount = setInterval(update, 1000);
+    startBtn.setAttribute('disabled', '')
     update();
 })
 
 stopBtn.addEventListener('click', () => {
+    startBtn.removeAttribute('disabled');
     clearInterval(startCount);
 })
 
