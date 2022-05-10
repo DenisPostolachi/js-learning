@@ -3,4 +3,9 @@ alert(`Hello ${name}`)
 const knowledge = confirm("Do you know js ?")
 
 // todo if else instead of ternar
-knowledge ? alert("Good") : alert("Go to learn js")
+// knowledge ? alert("Good") : alert("Go to learn js")
+if (knowledge) {
+    alert('Good')
+} else {
+    alert('Go to learn js')
+}
