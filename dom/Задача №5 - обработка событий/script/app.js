@@ -6,8 +6,6 @@ const inputValue = input.value;
 let inputValueInt = Number(inputValue);
 
 
-
-
 reduce.addEventListener('click', (e) => {
     inputValueInt -= 1
     input.setAttribute('value', inputValueInt);

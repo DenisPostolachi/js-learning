@@ -7,7 +7,6 @@ const playerControl = {
         switch (e.keyCode) {
             case 39:
                 playerControl.playerLeft += 8;
-                //todo use `${}`
                 player.style.left = playerControl.playerLeft + 'px';
 
                 if (playerControl.playerLeft >= 450) {
@@ -47,22 +46,4 @@ const playerControl = {
 
 document.addEventListener('keydown', (e) => {
     playerControl.playerMoving(e);
-
-    //todo exemple
-    const functions = {
-        '39': ()=> {
-            playerControl.playerTop -= 8;
-            player.style.top = playerControl.playerTop + 'px';
-
-            if (playerControl.playerTop <= 0) {
-                playerControl.playerTop = 8
-            }
-        },
-        '37': ()=> {},
-        '50': ()=> {},
-    }
-
-    functions[e.key]();
-
-
 })

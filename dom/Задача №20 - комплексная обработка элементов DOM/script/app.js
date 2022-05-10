@@ -15,6 +15,11 @@ addForm.addEventListener('submit', (e) => {
     const userName = document.createElement('span');
     const deleteBtn = document.createElement('span');
 
+
+    if (!value) {
+        return  e.submitter.disabled === 'true'
+    }
+
     // текст-контент
     userName.innerText = value;
     deleteBtn.innerText = 'delete';
@@ -30,14 +35,15 @@ addForm.addEventListener('submit', (e) => {
 
 
     deleteBtn.addEventListener('click', (e) => {
-            const parentElement = e.target.parentElement;
-            parentElement.parentNode.removeChild(parentElement);
+        const parentElement = e.target.parentElement;
+        parentElement.parentNode.removeChild(parentElement);
     });
+
 });
 
 deleteButtonsStatic.forEach((item) => {
     item.addEventListener('click', (e) => {
-            const parentElement = e.target.parentElement;
-            parentElement.parentNode.removeChild(parentElement);
+        const parentElement = e.target.parentElement;
+        parentElement.parentNode.removeChild(parentElement);
     });
 })

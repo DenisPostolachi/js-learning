@@ -14,17 +14,14 @@ for (let i = 0; i <= 4; i++) {
     elementsHttp.innerText = `Link hhtp `
 
     container.append(elementsHttps, elementsHttp);
-   // container.append(elementsHttp);
     linksArray.push(elementsHttps, elementsHttp);
 }
 
 
 linksArray.forEach((item) => {
+    const linkNames = item.getAttribute('href');
 
-    //todo rename
-    const attributes = item.getAttribute('href');
-
-    if (attributes.startsWith('https')) {
+    if (linkNames.startsWith('https')) {
         item.classList.add('red');
     }
 

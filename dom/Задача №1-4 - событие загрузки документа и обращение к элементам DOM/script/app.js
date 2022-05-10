@@ -1,15 +1,11 @@
 const body = document.querySelector('body');
-const button = document.querySelector('.btn');
+const btn = document.querySelector('.btn');
 
 body.classList.add('red-bg');
 
 setTimeout(() => {
     body.classList.add('green-bg');
 }, 3000);
-
-
-//todo remove
-const btn = document.querySelector('.btn');
 
 
 btn.addEventListener('click' ,() => {
