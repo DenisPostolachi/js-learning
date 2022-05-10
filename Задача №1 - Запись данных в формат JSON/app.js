@@ -96,16 +96,16 @@ let workers = {
 
 const container = document.getElementById('container')
 
-const createHtmlList = obj => {
+const createHtmlList = object => {
     let output = "";
-    Object.keys(obj).forEach((workerInfo) => {
+    Object.keys(object).forEach((workerInfo) => {
 
-        if (typeof obj[workerInfo] === "object" && obj[workerInfo] !== null){
+        if (typeof object[workerInfo] === "object" && object[workerInfo] !== null){
             output += "<li>" +  workerInfo + "<ul>";
-            output += createHtmlList(obj[workerInfo]);
+            output += createHtmlList(object[workerInfo]);
             output += "</ul></li>";
         } else {
-            output += "<li>" + workerInfo + " : " + obj[workerInfo] + "</li>";
+            output += "<li>" + workerInfo + " : " + object[workerInfo] + "</li>";
         }
     });
     container.innerHTML = output
