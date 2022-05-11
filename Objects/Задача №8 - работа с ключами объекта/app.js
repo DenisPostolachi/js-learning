@@ -19,7 +19,7 @@ const translatedWeekDays = {
 }
 
 // todo
-
+// todo make it better
 const keys = Object.keys(weekDays)
 const values = Object.values(translatedWeekDays)
 
