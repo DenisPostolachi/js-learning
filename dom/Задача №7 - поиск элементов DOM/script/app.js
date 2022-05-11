@@ -1,6 +1,7 @@
 const container = document.querySelector('.link-container');
 let linksArray = [];
 
+// todo todo get elements from html
 
 for (let i = 0; i <= 4; i++) {
 

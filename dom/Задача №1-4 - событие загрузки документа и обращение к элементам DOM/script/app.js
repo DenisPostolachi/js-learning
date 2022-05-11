@@ -18,7 +18,6 @@ for (let i = 0; i <= 20; i++) {
     setTimeout(() => {
         const li = document.createElement("li");
 
-        list.appendChild(li);
         li.innerHTML = `${i} Element`;
 
         if (i % 2) {
@@ -26,6 +25,8 @@ for (let i = 0; i <= 20; i++) {
         } else {
             li.classList.add('even');
         }
+
+        list.appendChild(li);
     }, i * 2000);
 }
 
