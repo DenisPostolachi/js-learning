@@ -47,6 +47,7 @@ class Form {
             const inputs = document.getElementsByTagName('input');
 
             const errors = {}
+            const emailRegex = /\S+@\S+\.\S+/
 
             for (const input of inputs) {
                 const rules = input.getAttribute('rules')
@@ -67,55 +68,21 @@ class Form {
                     errors[input.id] = ['required field']
                 }
 
+                if (rules.split('|').includes('min:10') && input.value <= 10) {
+                    // todo if exists extents errors
+                    errors[input.id] = ['should be more than 10']
+                }
+
+                if (rules.split('|').includes('email') && !emailRegex.test(input.value)) {
+                    // todo if exists extents errors
+                    errors[input.id] = ['invalid email']
+                }
+
 
             }
 
+            console.log(errors)
             return !!errors.length
-
-            // const name = document.getElementById('name');
-            // const email = document.getElementById('email');
-            // const age = document.getElementById('age');
-            // const birthdate = document.getElementById('birthdate');
-            //
-            // if ( name.hasAttribute('rules') && name.value) {
-            //     name.classList.remove('error');
-            //     name.classList.add('success');
-            //     document.getElementById('name-error').style.display = 'none'
-            // } else {
-            //     name.classList.remove('success');
-            //     name.classList.add('error');
-            //     document.getElementById('name-error').style.display = 'block'
-            // }
-            //
-            // if ( email.hasAttribute('rules') && email.value) {
-            //     email.classList.remove('error');
-            //     email.classList.add('success');
-            //     document.getElementById('email-error').style.display = 'none'
-            // } else {
-            //     email.classList.remove('success');
-            //     email.classList.add('error');
-            //     document.getElementById('email-error').style.display = 'block'
-            // }
-            //
-            // if ( age.hasAttribute('rules') && Number(age.value) > 10) {
-            //     age.classList.remove('error');
-            //     age.classList.add('success');
-            //     document.getElementById('age-error').style.display = 'none'
-            // } else {
-            //     age.classList.remove('success');
-            //     age.classList.add('error');
-            //     document.getElementById('age-error').style.display = 'block'
-            // }
-            //
-            // if ( birthdate.hasAttribute('rules') && birthdate.value) {
-            //     birthdate.classList.remove('error');
-            //     birthdate.classList.add('success');
-            //     document.getElementById('birthdate-error').style.display = 'none'
-            // } else {
-            //     birthdate.classList.remove('success');
-            //     birthdate.classList.add('error');
-            //     document.getElementById('birthdate-error').style.display = 'block'
-            // }
 
         })
         return this
@@ -137,31 +104,6 @@ formElementFour.create().createErrorMessage('birthdate');
 formElementFive.create().validate();
 
 
-//todo exemple
-const rules = [
-    (v)=> !!v || 'Required rule',
-    (v)=> /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v) || 'Incorrect email format',
-    (v) => v.length > 15 || 'Min length is 15'
-]
-
-//todo 1
-const validate = (str) => {
-    for (const rule of rules) {
-        const validateRule = rule(str);
-
-        if (typeof validateRule !== 'boolean') {
-            return validateRule;
-        }
-    }
-    return true;
-}
-
-//todo 2
-const validate2 = (str) => {
-    return rules.map(rule => rule(str)).filter(item => typeof item !== 'boolean')
-}
-
-console.log(validate2('dfgfddgfdgfdgdf@fg.ff'))
 
 
 
