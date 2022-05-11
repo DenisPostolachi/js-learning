@@ -8,25 +8,25 @@
     <title>Document</title>
 </head>
 <body>
-<form id="form">
-    <label>
-        Your Name
-        <input type="text" id="name-input" name="name">
-    </label>
-    <label>
-        Your City
-        <select id="city">
-            <option value="value1" selected>Balti</option>
-            <option value="value2">Riscani</option>
-        </select>
-    </label>
-    <p>Languages you know</p>
-    <input type="radio" id="html" name="fav_language" value="HTML">
-    <label for="html">HTML</label><br>
-    <input type="radio" id="css" name="fav_language" value="CSS">
-    <label for="css">CSS</label><br>
-    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-    <label for="javascript">JavaScript</label>
+<form class="form-login"/>
+<label>Name: </label>
+<input name="name" type="name" id="name" placeholder="Name"/>
+<label>City: </label>
+<select name="locations" id="locations">
+    <option value="balti">balti</option>
+    <option value="chisinau">chisinau</option>
+    <option value="riscani">riscani</option>
+</select>
+<label>Languages your know:</label>
+<div style="display: flex" id="language-container">
+    <input type="checkbox" name="html" value="html">html
+    <input type="checkbox" name="css" value="css">css
+    <input type="checkbox" name="js" value="js">js
+</div>
+
 </form>
+<button id="store" type="button">Store</button>
+<button id="clear" type="button">Clear</button>
+<script src="app.js"></script>
 </body>
 </html>
