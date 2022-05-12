@@ -66,19 +66,23 @@ class Form {
                 if (rules.split('|').includes('required') && !input.value) {
                     // todo if exists extents errors
                     errors[input.id] = ['required field']
-                }
-
-                if (rules.split('|').includes('min:10') && input.value <= 10) {
-                    // todo if exists extents errors
+                } else if (rules.split('|').includes('min:10') && input.value <= 10) {
                     errors[input.id] = ['should be more than 10']
-                }
-
-                if (rules.split('|').includes('email') && !emailRegex.test(input.value)) {
-                    // todo if exists extents errors
+                } else if (rules.split('|').includes('email') && !emailRegex.test(input.value)) {
                     errors[input.id] = ['invalid email']
                 }
 
-
+                // if (rules.split('|').includes('min:10') && input.value <= 10) {
+                //     // todo if exists extents errors
+                //     if (Object.keys(errors).find(key => errors[key] !== 'required field')) {
+                //         errors[input.id] = ['should be more than 10']
+                //     }
+                // }
+                //
+                // if (rules.split('|').includes('email') && !emailRegex.test(input.value)) {
+                //     // todo if exists extents errors
+                //     errors[input.id] = ['invalid email']
+                // }
             }
 
             console.log(errors)
