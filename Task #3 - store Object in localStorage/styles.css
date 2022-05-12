@@ -1,16 +1,16 @@
-.form-group {
+.form-login {
+    width: 800px;
     display: flex;
     flex-direction: column;
-    max-width: 600px;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
 }
 
-.form-control {
-    margin: 10px 0;
+label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-#form {
-    display: flex;
-    justify-content: center;
+input, select{
+    margin-bottom: 10px;
 }

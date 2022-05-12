@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
@@ -18,15 +19,21 @@
     <option value="riscani">riscani</option>
 </select>
 <label>Languages your know:</label>
-<div style="display: flex" id="language-container">
+<div style="display: flex; margin-bottom: 15px" id="language-container">
     <input type="checkbox" name="html" value="html">html
     <input type="checkbox" name="css" value="css">css
     <input type="checkbox" name="js" value="js">js
 </div>
-
+<label>Motivation: </label>
+<textarea id="motivation-text" name="w3review" rows="4" cols="50">
+Write your mssg here
+</textarea>
+<div style="display: flex; margin-top: 10px">
+    <button id="store" type="button" style="margin-right: 5px">Store</button>
+    <button id="clear" type="button">Clear</button>
+</div>
 </form>
-<button id="store" type="button">Store</button>
-<button id="clear" type="button">Clear</button>
+
 <script src="app.js"></script>
 </body>
 </html>
