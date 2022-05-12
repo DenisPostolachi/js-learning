@@ -93,6 +93,11 @@ class Form {
     }
 
     //  todo add method get value
+    get getValue() {
+        console.log(this.value)
+        return this.value
+        return this
+    }
 }
 
 const formElementOne = new Form('text', 'name', 'Name', 'John', 'required');
@@ -101,8 +106,8 @@ const formElementThree = new Form('text', 'age', 'Age', '62', 'required|min:10')
 const formElementFour = new Form('text', 'birthdate', 'Date', '01.12.1962', 'required|date');
 const formElementFive = new Form('submit', 'submit', '', 'Submit');
 
-formElementOne.create().createErrorMessage('name');
-formElementTwo.create().createErrorMessage('email');
+formElementOne.create().createErrorMessage('name').getValue;
+formElementTwo.create().createErrorMessage('email').getValue;
 formElementThree.create().createErrorMessage('age');
 formElementFour.create().createErrorMessage('birthdate');
 formElementFive.create().validate();
