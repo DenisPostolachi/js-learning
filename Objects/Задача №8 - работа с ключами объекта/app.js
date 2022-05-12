@@ -8,22 +8,16 @@ const weekDays = {
     'Su': 'Воскресенье',
 }
 
-const translatedWeekDays = {
-    'Mo': 'Luni',
-    'Tu': 'Marti',
-    'We': 'Miercuri',
-    'Th': 'Joi',
-    'Fr': 'Vineri',
-    'Sa': 'Simbata',
-    'Su': 'Duminica',
+const translation = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+const translate = () => {
+    let i = 0;
+    for (const argumentsKey in weekDays) {
+        if (weekDays.hasOwnProperty(argumentsKey)) {
+            weekDays[argumentsKey] = translation[i++]
+        }
+    }
 }
-
-// todo
-// todo make it better
-const keys = Object.keys(weekDays)
-const values = Object.values(translatedWeekDays)
-
-const result = {};
-keys.forEach((key, index) => result[key] = values[index]);
-console.log(result);
+translate();
+console.log(weekDays);
 

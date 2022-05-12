@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ac47c1f-474b-4cf2-b21c-fa073304eebd" name="Changes" comment="content add">
-      <change afterPath="$PROJECT_DIR$/Objects/Task #11 - array of objects/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Objects/Task #11 - array of objects/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Objects/Задача №10 - работа с ключами объекта/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/Задача №10 - работа с ключами объекта/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Objects/Задача №8 - работа с ключами объекта/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/Objects/Задача №8 - работа с ключами объекта/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +30,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="25IAJfoFLWESQwkHPNVhGIo3X7H" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -83,6 +82,7 @@
       <workItem from="1650980615921" duration="5414000" />
       <workItem from="1650998277114" duration="1720000" />
       <workItem from="1651066299429" duration="1606000" />
+      <workItem from="1652340447370" duration="714000" />
     </task>
     <task id="LOCAL-00001" summary="branch init">
       <created>1650997634271</created>
