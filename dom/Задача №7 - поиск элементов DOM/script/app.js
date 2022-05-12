@@ -1,29 +1,10 @@
 const container = document.querySelector('.link-container');
-let linksArray = [];
 
 // todo todo get elements from html
 
-for (let i = 0; i <= 4; i++) {
-
-    const elementsHttps = document.createElement('a');
-    elementsHttps.href = 'https://stackoverflow.com'
-
-    const elementsHttp = document.createElement('a');
-    elementsHttp.href = 'http://orar.usarb.md/'
-
-    elementsHttps.innerText = `Link hhtps `
-    elementsHttp.innerText = `Link hhtp `
-
-    container.append(elementsHttps, elementsHttp);
-    linksArray.push(elementsHttps, elementsHttp);
+for (let i = 0; i < container.children.length; i++) {
+    if (container.children[i].innerText.startsWith('https')) {
+        container.children[i].classList.add('red');
+    }
 }
 
-
-linksArray.forEach((item) => {
-    const linkNames = item.getAttribute('href');
-
-    if (linkNames.startsWith('https')) {
-        item.classList.add('red');
-    }
-
-})
