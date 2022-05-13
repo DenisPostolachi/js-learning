@@ -8,6 +8,8 @@ const weekDays = {
     'Su': 'Воскресенье',
 }
 
+
+// todo переделать
 const translation = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
 const translate = () => {
