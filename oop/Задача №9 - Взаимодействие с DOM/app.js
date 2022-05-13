@@ -64,7 +64,6 @@ class Form {
 
 
                 if (rules.split('|').includes('required') && !input.value) {
-                    // todo if exists extents errors
                     errors[input.id] = ['required field']
                 } else if (rules.split('|').includes('min:10') && input.value <= 10) {
                     errors[input.id] = ['should be more than 10']
