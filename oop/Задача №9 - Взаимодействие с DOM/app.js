@@ -42,8 +42,6 @@ class Form {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // todo find all inputs and validate they
-
             const inputs = document.getElementsByTagName('input');
 
             const errors = {}
@@ -56,35 +54,43 @@ class Form {
                     return;
                 }
 
-                // todo make for all rules
-                // {
-                //      name: [ 'required' ],
-                //      email: ['invalid email']
-                // ]
+                const validationRules =  rules.split('|');
+                errors[input.id] = [];
 
+                for (const rule of validationRules)  {
+                    if (rule === 'required' && !input.value) {
+                        errors[input.id].push('required field')
+                    }
 
-                if (rules.split('|').includes('required') && !input.value) {
-                    errors[input.id] = ['required field']
-                } else if (rules.split('|').includes('min:10') && input.value <= 10) {
-                    errors[input.id] = ['should be more than 10']
-                } else if (rules.split('|').includes('email') && !emailRegex.test(input.value)) {
-                    errors[input.id] = ['invalid email']
+                    if (rule.startsWith('min:')) {
+                        if (input.value) {
+                            if (isNaN(input.value)) {
+                                errors[input.id] = [`should be a valid number`]
+                                break
+                            }
+
+                            const [,minLength]= rule.split(':');
+
+                            if (Number(input.value) < Number(minLength)) {
+                                errors[input.id] = [`should be more than ${minLength}`]
+                            }
+                        }
+
+                    }
+
+                    if (rule === 'email' && !emailRegex.test(input.value)) {
+                        errors[input.id].push('invalid email')
+                    }
                 }
 
-                // if (rules.split('|').includes('min:10') && input.value <= 10) {
-                //     // todo if exists extents errors
-                //     if (Object.keys(errors).find(key => errors[key] !== 'required field')) {
-                //         errors[input.id] = ['should be more than 10']
-                //     }
-                // }
-                //
-                // if (rules.split('|').includes('email') && !emailRegex.test(input.value)) {
-                //     // todo if exists extents errors
-                //     errors[input.id] = ['invalid email']
-                // }
+
+                for (const key in errors) {
+                    if (errors[key] && !errors[key]?.length) {
+                        delete errors[key]
+                    }
+                }
             }
 
-            console.log(errors)
             return !!errors.length
 
         })
