@@ -3,9 +3,11 @@ const addTodoButton = document.getElementById('add-todo')
 
 const getAllTodos = async () => {
     try {
-        const res = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
-        const todoItems = await res.json();
-        todoItems.forEach(todo => renderTodo(todo))
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
+        const todoItems = await response.json();
+        todoItems.forEach(todo => {
+            renderTodo(todo)
+        })
     } catch (e) {
         console.log('server error')
     }
