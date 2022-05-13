@@ -10,6 +10,7 @@ todoForm.addEventListener('submit', (event) => {
 
 
 const addTodo = item => {
+    // todo remove !
     if (!item) {
         const todo = {
             id: Date.now(),
